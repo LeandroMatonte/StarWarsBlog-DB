@@ -3,12 +3,12 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import { DetailsCharacters } from "./views/detailsCharacters";
+import { DetailsPlanets } from "./views/detailsPlanets";
+import { DetailsVehicles } from "./views/detailsVehicles";
 
 //create your first component
 const Layout = () => {
@@ -25,17 +25,19 @@ const Layout = () => {
 						<Route exact path="/">
 							<Home />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/details-characters/:theid">
+							<DetailsCharacters />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/details-planets/:theid">
+							<DetailsPlanets />
+						</Route>
+						<Route exact path="/details-vehicles/:theid">
+							<DetailsVehicles />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
 					</Switch>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>
