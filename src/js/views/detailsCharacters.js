@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import starWarsLogo from "../../img/starWarsLogo.png";
-import yodaImage from "../../img/characterImage.png";
 import { useParams } from "react-router-dom";
+import { Info } from "../component/info";
 
 import { Context } from "../store/appContext";
 
@@ -42,29 +42,13 @@ export function DetailsCharacters() {
 							voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 						</p>
 					</div>
-					<hr className="my-4" />
 					<div className="col-12">
-						<div className="d-flex justify-content-around my-5 text-light align-items-center description">
-							<div>
-								<p>Birth Year</p>
-								<p>{detalles ? detalles.birth_year : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Gender</p>
-								<p>{detalles ? detalles.gender : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Height</p>
-								<p>{detalles ? detalles.height : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Skin Color</p>
-								<p>{detalles ? detalles.skin_color : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Eye Color</p>
-								<p>{detalles ? detalles.eye_color : "Cargando..."}</p>
-							</div>
+						<div className="d-flex justify-content-around align-items-center my-5 text-light description">
+							<Info infoName="Birth Year" info={detalles ? detalles.birth_year : "Cargando..."} />
+							<Info infoName="Gender" info={detalles ? detalles.gender : "Cargando..."} />
+							<Info infoName="Height" info={detalles ? detalles.height : "Cargando..."} />
+							<Info infoName="Skin Color" info={detalles ? detalles.skin_color : "Cargando..."} />
+							<Info infoName="Eye Color" info={detalles ? detalles.eye_color : "Cargando..."} />
 						</div>
 					</div>
 				</div>

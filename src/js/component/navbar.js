@@ -34,7 +34,7 @@ export const Navbar = () => {
 						)}
 						{store.favorites.map((favorite, index) => {
 							return (
-								<a
+								<button
 									key={index}
 									className="dropdown-item d-flex justify-content-between align-items-center"
 									href="#">
@@ -46,7 +46,7 @@ export const Navbar = () => {
 										className="ml-1">
 										<i className="fas fa-trash" />
 									</a>
-								</a>
+								</button>
 							);
 						})}
 					</div>

@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import starWarsLogo from "../../img/starWarsLogo.png";
 import { useParams } from "react-router-dom";
+import { Info } from "../component/info";
 
 import { Context } from "../store/appContext";
 
@@ -45,26 +46,17 @@ export function DetailsVehicles() {
 					<hr className="my-4" />
 					<div className="col-12">
 						<div className="d-flex justify-content-around my-5 text-light align-items-center description">
-							<div>
-								<p>Model</p>
-								<p>{detalles ? detalles.model : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Cost in credits</p>
-								<p>{detalles ? detalles.cost_in_credits : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Length</p>
-								<p>{detalles ? detalles.length : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Max Speed</p>
-								<p>{detalles ? detalles.max_atmosphering_speed : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>passengers</p>
-								<p>{detalles ? detalles.passengers : "Cargando..."}</p>
-							</div>
+							<Info infoName="Model" info={detalles ? detalles.model : "Cargando..."} />
+							<Info
+								infoName="Cost in credits"
+								info={detalles ? detalles.cost_in_credits : "Cargando..."}
+							/>
+							<Info infoName="Length" info={detalles ? detalles.length : "Cargando..."} />
+							<Info
+								infoName="Max Speed"
+								info={detalles ? detalles.max_atmosphering_speed : "Cargando..."}
+							/>
+							<Info infoName="Passengers" info={detalles ? detalles.passengers : "Cargando..."} />
 						</div>
 					</div>
 				</div>

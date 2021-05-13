@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import starWarsLogo from "../../img/starWarsLogo.png";
 import { useParams } from "react-router-dom";
+import { Info } from "../component/info";
 
 import { Context } from "../store/appContext";
 
@@ -43,26 +44,11 @@ export function DetailsPlanets() {
 					<hr className="my-4" />
 					<div className="col-12">
 						<div className="d-flex justify-content-around my-5 text-light align-items-center description">
-							<div>
-								<p>Climate</p>
-								<p>{detalles ? detalles.climate : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Diameter</p>
-								<p>{detalles ? detalles.diameter : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Gravity</p>
-								<p>{detalles ? detalles.gravity : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Population</p>
-								<p>{detalles ? detalles.population : "Cargando..."}</p>
-							</div>
-							<div>
-								<p>Terrain</p>
-								<p>{detalles ? detalles.terrain : "Cargando..."}</p>
-							</div>
+							<Info infoName="Climate" info={detalles ? detalles.climate : "Cargando..."} />
+							<Info infoName="Diameter" info={detalles ? detalles.diameter : "Cargando..."} />
+							<Info infoName="Gravity" info={detalles ? detalles.gravity : "Cargando..."} />
+							<Info infoName="Population" info={detalles ? detalles.population : "Cargando..."} />
+							<Info infoName="Terrain" info={detalles ? detalles.terrain : "Cargando..."} />
 						</div>
 					</div>
 				</div>
