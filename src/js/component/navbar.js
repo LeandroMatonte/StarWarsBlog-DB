@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import starWarsLogo from "../../img/starWarsLogo.png";
+import starWarsLogo from "../../img/starWarsNav.png";
 
 import { Context } from "../store/appContext";
 
@@ -35,9 +35,6 @@ export const Navbar = () => {
 						{store.favorites.map((favorite, index) => {
 							return (
 								<a
-									onClick={e => {
-										e.stopPropagation();
-									}}
 									key={index}
 									className="dropdown-item d-flex justify-content-between align-items-center"
 									href="#">

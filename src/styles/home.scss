@@ -17,6 +17,55 @@ h1{
     font-size: 50px;
 }
 
+.detailsHeader{
+    color: white;
+    font-size: 65px;
+    font-weight: bold;
+}
+
+.details-description{
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.45);
+    border-radius: 15px;
+}
+
+.description{
+    font-size: 28px;
+    font-weight: bold;
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 15px;
+    padding-top: 15px;
+    text-align: center;
+}
+
+#favorites{
+    color:black;
+    border: 2px solid black;
+    background-color: #FFE81F;
+}
+
+#containerCharacters, #containerPlanets, #containerVehicles{
+    background-repeat: no-repeat;
+    background-position: 111% 150px;
+    background-color: rgba(255, 225, 53, 0.9);
+    border-radius: 30px;
+}
+
+#containerCharacters{
+    background-image: url("../img/characterImage.png");
+}
+
+#containerPlanets{
+    background-image: url("../img/planetImage.png");
+}
+
+#containerVehicles{
+    background-image: url("../img/vehicleImage.png");
+    background-position: 111% 200px;
+}
+
 .nav-logo{
     width: 130px;
 }
@@ -33,17 +82,6 @@ h1{
     background: #FFE81F;
     border: 1px solid rgb(34, 34, 34);
     border-radius: 6px;
-}
-
-.details-description{
-    color: white;
-    font-size: 22px;
-}
-
-#favorites{
-    color:black;
-    border: 2px solid black;
-    background-color: #FFE81F;
 }
 
 *{
