@@ -8,17 +8,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			loadSomeData: () => {
-				fetch("https://www.swapi.tech/api/people/")
-					.then(res => res.json())
-					.then(data => setStore({ characters: data.results }));
-
-				fetch("https://www.swapi.tech/api/vehicles")
-					.then(res => res.json())
-					.then(data => setStore({ vehicles: data.results }));
-
-				fetch("https://www.swapi.tech/api/planets")
-					.then(res => res.json())
-					.then(data => setStore({ planets: data.results }));
+				getActions().obtenerInfoApi("people");
+				getActions().obtenerInfoApi("vehicles");
+				getActions().obtenerInfoApi("planets");
+			},
+			obtenerInfoApi: async tipo => {
+				let link = `https://www.swapi.tech/api/${tipo}/`;
+				if (tipo == "people") {
+					tipo = "characters";
+				}
+				if (localStorage.getItem(tipo)) {
+					setStore({ [tipo]: JSON.parse(localStorage.getItem(tipo)) });
+				} else {
+					await fetch(link)
+						.then(res => res.json())
+						.then(data => setStore({ [tipo]: data.results }));
+					localStorage.setItem(tipo, JSON.stringify(getStore()[tipo]));
+				}
 			},
 			addFavorite: (id, tipo) => {
 				const store = getStore();
