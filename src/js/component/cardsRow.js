@@ -15,9 +15,8 @@ export function CardsRow(props) {
 					return (
 						<div key={index} className="mr-5">
 							<div className="card my-1" style={{ width: "25rem" }}>
-								<img src={starWarsLogo} className="card-img-top" alt="..." />
 								<div className="card-body">
-									<h5 className="card-title">{item.name}</h5>
+									<h1 className="card-title text-danger text-center">{item.name}</h1>
 									<p className="card-text">
 										Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
 										incididunt ut labore et dolore magna aliqua.

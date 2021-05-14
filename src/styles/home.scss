@@ -72,18 +72,34 @@
     width: 130px;
 }
 
+body::-webkit-scrollbar{
+    width: 12px;
+    height: 12px;
+    background-color: rgb(131, 119, 17);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #FFE81F;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: rgb(233, 212, 28);
+}
+
 .tarjetas::-webkit-scrollbar{
     width: 12px;
     height: 12px;
-    border: 1px solid rgb(34, 34, 34);
     border-radius: 6px;
-    background-color: rgb(228, 228, 228);
+    background-color: rgb(131, 119, 17);
 }
 
 .tarjetas::-webkit-scrollbar-thumb {
     background: #FFE81F;
-    border: 1px solid rgb(34, 34, 34);
     border-radius: 6px;
+}
+
+.tarjetas::-webkit-scrollbar-thumb:hover {
+    background: rgb(233, 212, 28);
 }
 
 *{
