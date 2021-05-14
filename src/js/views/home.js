@@ -1,15 +1,13 @@
 import React from "react";
 import "../../styles/home.scss";
-import { Characters } from "../component/characters";
-import { Planets } from "../component/planets";
-import { Vehicles } from "../component/vehicles";
+import { CardsRow } from "../component/cardsRow";
 
 export const Home = () => {
 	return (
 		<div className="homeBackground">
-			<Characters />
-			<Planets />
-			<Vehicles />
+			<CardsRow name="characters" />
+			<CardsRow name="planets" />
+			<CardsRow name="vehicles" />
 		</div>
 	);
 };

@@ -3,8 +3,8 @@ import propTypes from "prop-types";
 
 export function Info(params) {
 	return (
-		<div>
-			<p>{params.infoName}</p>
+		<div className="description-item">
+			<p className="text-danger">{params.infoName}</p>
 			<p>{params.info}</p>
 		</div>
 	);

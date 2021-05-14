@@ -12,19 +12,18 @@
     overflow-x: scroll;
 }
 
-h1{
+.cardsRowHeader{
     color: #FFE81F;
     font-size: 50px;
+    text-transform: capitalize;
 }
 
 .detailsHeader{
-    color: white;
     font-size: 65px;
     font-weight: bold;
 }
 
-.details-description{
-    color: white;
+.details-description, .imagen-background{
     font-size: 22px;
     font-weight: bold;
     background-color: rgba(0, 0, 0, 0.45);
@@ -35,9 +34,12 @@ h1{
     font-size: 28px;
     font-weight: bold;
     background-color: rgba(0,0,0,0.5);
-    border-radius: 15px;
-    padding-top: 15px;
     text-align: center;
+}
+
+.description-item{
+    border-radius: 15px;
+    background: rgba(0,0,0,0.5);
 }
 
 #favorites{
@@ -46,22 +48,22 @@ h1{
     background-color: #FFE81F;
 }
 
-#containerCharacters, #containerPlanets, #containerVehicles{
+#container-characters, #container-planets, #container-vehicles{
     background-repeat: no-repeat;
     background-position: 111% 150px;
     background-color: rgba(255, 225, 53, 0.9);
     border-radius: 30px;
 }
 
-#containerCharacters{
+#container-characters{
     background-image: url("../img/characterImage.png");
 }
 
-#containerPlanets{
+#container-planets{
     background-image: url("../img/planetImage.png");
 }
 
-#containerVehicles{
+#container-vehicles{
     background-image: url("../img/vehicleImage.png");
     background-position: 111% 200px;
 }

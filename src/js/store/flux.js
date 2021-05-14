@@ -4,7 +4,28 @@ const getState = ({ getStore, getActions, setStore }) => {
 			favorites: [],
 			characters: [],
 			vehicles: [],
-			planets: []
+			planets: [],
+			characterProps: [
+				["Birth Year", "birth_year"],
+				["Gender", "gender"],
+				["Height", "height"],
+				["Skin Color", "skin_color"],
+				["Eye Color", "eye_color"]
+			],
+			planetsProps: [
+				["Climate", "climate"],
+				["Diameter", "diameter"],
+				["Gravity", "gravity"],
+				["Population", "population"],
+				["Terrain", "terrain"]
+			],
+			vehiclesProps: [
+				["Model", "model"],
+				["Cost in credits", "cost_in_credits"],
+				["Length", "length"],
+				["Max Speed", "max_atmosphering_speed"],
+				["Passengers", "passengers"]
+			]
 		},
 		actions: {
 			loadSomeData: () => {
