@@ -29,6 +29,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			loadSomeData: () => {
+				if (localStorage.getItem("favorites")) {
+					setStore({ favorites: JSON.parse(localStorage.getItem("favorites")) });
+				}
 				getActions().obtenerInfoApi("people");
 				getActions().obtenerInfoApi("vehicles");
 				getActions().obtenerInfoApi("planets");
@@ -53,6 +56,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				if (!store.favorites.includes(id)) {
 					favoritesNew.push({ name: store[tipo][id].name, tipo: tipo, id: id });
 				}
+				localStorage.setItem("favorites", JSON.stringify(favoritesNew));
 				setStore({ favorites: favoritesNew });
 			},
 			delFavorite: (id, tipo) => {
@@ -65,6 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					}
 					i++;
 				}
+				localStorage.setItem("favorites", JSON.stringify(favoritesNew));
 				setStore({ favorites: favoritesNew });
 			},
 			isFav: (id, tipo) => {

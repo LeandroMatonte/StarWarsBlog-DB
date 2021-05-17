@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import starWarsLogo from "../../img/starWarsNav.png";
 
@@ -6,6 +6,7 @@ import { Context } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(Context);
+	const [isSelected, setIsSelected] = useState(-1);
 	return (
 		<nav className="navbar navbar-light">
 			<div className="container">
@@ -30,25 +31,26 @@ export const Navbar = () => {
 						{store.favorites.length == 0 ? (
 							<a className="dropdown-item d-flex justify-content-between align-items-center">Empty</a>
 						) : (
-							""
+							store.favorites.map((favorite, index) => {
+								return (
+									<button
+										key={index}
+										className="dropdown-item d-flex justify-content-between align-items-center"
+										href="#">
+										<Link to={`/details-${favorite.tipo}/${favorite.id}`}>{favorite.name}</Link>
+										<a
+											onClick={() => {
+												actions.delFavorite(favorite.id, favorite.tipo);
+											}}
+											onMouseEnter={() => setIsSelected(index)}
+											onMouseLeave={() => setIsSelected(-1)}
+											className={`ml-1 ${isSelected == index ? "text-danger" : ""}`}>
+											<i className="fas fa-trash" />
+										</a>
+									</button>
+								);
+							})
 						)}
-						{store.favorites.map((favorite, index) => {
-							return (
-								<button
-									key={index}
-									className="dropdown-item d-flex justify-content-between align-items-center"
-									href="#">
-									<Link to={`/details-${favorite.tipo}/${favorite.id}`}>{favorite.name}</Link>
-									<a
-										onClick={() => {
-											actions.delFavorite(favorite.id, favorite.tipo);
-										}}
-										className="ml-1">
-										<i className="fas fa-trash" />
-									</a>
-								</button>
-							);
-						})}
 					</div>
 				</div>
 			</div>
