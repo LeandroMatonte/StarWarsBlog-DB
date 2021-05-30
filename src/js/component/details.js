@@ -11,12 +11,12 @@ export function Details(props) {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="detailsBackground">
+		<div>
 			<div id={`container-${props.name}`} className="container">
 				<div className="row my-5">
 					<div className="col-sm-12 col-md-6 my-5 d-flex align-items-center">
 						<div className="imagen-background p-2">
-							<img src={starWarsLogo} className="card-img-top" alt="..." />
+							<img src={store[props.name][params.theid].image_url} className="card-img-top" alt="..." />
 						</div>
 					</div>
 					<div className="col-sm-12 col-md-6 text-center my-5">

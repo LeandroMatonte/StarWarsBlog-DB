@@ -4,7 +4,7 @@ import { CardsRow } from "../component/cardsRow";
 
 export const Home = () => {
 	return (
-		<div className="homeBackground">
+		<div>
 			<CardsRow name="characters" />
 			<CardsRow name="planets" />
 			<CardsRow name="vehicles" />

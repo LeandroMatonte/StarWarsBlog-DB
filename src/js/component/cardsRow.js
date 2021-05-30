@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import starWarsLogo from "../../img/starWarsLogo.png";
 import propTypes from "prop-types";
 
 import { Context } from "../store/appContext";
@@ -15,6 +14,11 @@ export function CardsRow(props) {
 					return (
 						<div key={index} className="mr-5">
 							<div className="card my-1" style={{ width: "25rem" }}>
+								<img
+									src={store[props.name][index].image_url}
+									className="card-img-top"
+									alt="card image"
+								/>
 								<div className="card-body">
 									<h1 className="card-title text-danger text-center">{item.name}</h1>
 									<p className="card-text">

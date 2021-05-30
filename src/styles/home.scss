@@ -1,4 +1,4 @@
-.homeBackground, .detailsBackground{
+body{
     background-image: url("../img/starWarsBackground.png");
 }
 
@@ -73,7 +73,7 @@
 }
 
 body::-webkit-scrollbar{
-    width: 12px;
+    width: 16px;
     height: 12px;
     background-color: rgb(131, 119, 17);
 }
@@ -100,6 +100,13 @@ body::-webkit-scrollbar-thumb:hover {
 
 .tarjetas::-webkit-scrollbar-thumb:hover {
     background: rgb(233, 212, 28);
+}
+
+.loginForm{
+    color: #FFE81F;
+    font-size: 30px;
+    max-width: 60%;
+    background-color: #1b1a1a;
 }
 
 *{

@@ -6,10 +6,10 @@ import { Info } from "../component/info";
 import { Context } from "../store/appContext";
 
 export function DetailsProperties(props) {
-	const params = useParams();
 	const { store, actions } = useContext(Context);
+	const params = useParams();
 	let propertiesSelected = [];
-
+	let detailTarget = store[props.name][params.theid];
 	switch (props.name) {
 		case "characters":
 			propertiesSelected = [...store.characterProps];
@@ -22,27 +22,12 @@ export function DetailsProperties(props) {
 			break;
 	}
 
-	const [detalles, setDetalles] = useState();
-	const cargarDetalles = id => {
-		fetch(store[props.name][id].url)
-			.then(res => res.json())
-			.then(data => {
-				setDetalles(data.result.properties);
-			});
-	};
-
-	useEffect(
-		() => {
-			cargarDetalles(params.theid);
-		},
-		[store[props.name][params.theid]]
-	);
 	return (
 		<>
 			{propertiesSelected.map((propName, index) => {
 				return (
 					<div key={index} className="col-sm-4 col-md-2">
-						<Info infoName={propName[0]} info={detalles ? detalles[propName[1]] : "Cargando..."} />
+						<Info infoName={propName[0]} info={detailTarget ? detailTarget[propName[1]] : "Cargando..."} />
 					</div>
 				);
 			})}

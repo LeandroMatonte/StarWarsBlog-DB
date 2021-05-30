@@ -36,17 +36,43 @@ const getState = ({ getStore, getActions, setStore }) => {
 				getActions().obtenerInfoApi("vehicles");
 				getActions().obtenerInfoApi("planets");
 			},
+			login: async (email, pass) => {
+				let myHeaders = new Headers();
+				myHeaders.append("content-type", "application/json");
+
+				let raw = JSON.stringify({
+					email: email,
+					password: pass
+				});
+
+				let requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					body: raw,
+					redirect: "follow"
+				};
+
+				const resLogin = await fetch(process.env.BACKEND_URL + "/login", requestOptions);
+				const data = await resLogin.json();
+				const ok = await resLogin.ok;
+				sessionStorage.setItem("token", data.token);
+				return ok;
+			},
+			isLogged: async () => {
+				console.log(sessionStorage.getItem("token"));
+				return sessionStorage.getItem("token") != undefined;
+			},
 			obtenerInfoApi: async tipo => {
-				let link = `https://www.swapi.tech/api/${tipo}/`;
+				let link = process.env.BACKEND_URL + "/" + tipo;
 				if (tipo == "people") {
 					tipo = "characters";
 				}
 				if (localStorage.getItem(tipo)) {
 					setStore({ [tipo]: JSON.parse(localStorage.getItem(tipo)) });
 				} else {
-					await fetch(link)
-						.then(res => res.json())
-						.then(data => setStore({ [tipo]: data.results }));
+					const resInfo = await fetch(link);
+					const data = await resInfo.json();
+					setStore({ [tipo]: data });
 					localStorage.setItem(tipo, JSON.stringify(getStore()[tipo]));
 				}
 			},
